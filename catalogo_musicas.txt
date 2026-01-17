@@ -1,0 +1,18 @@
+Bohemian Rhapsody|Queen|Rock|354|1975|1
+Imagine|John Lennon|Pop|183|1971|1
+Stairway to Heaven|Led Zeppelin|Rock|482|1971|1
+Billie Jean|Michael Jackson|Pop|294|1982|1
+Smells Like Teen Spirit|Nirvana|Grunge|301|1991|1
+Hotel California|Eagles|Rock|391|1976|1
+Like a Rolling Stone|Bob Dylan|Folk|369|1965|1
+Yesterday|The Beatles|Pop|125|1965|1
+Wonderwall|Oasis|Britpop|258|1995|1
+Sweet Child o' Mine|Guns N' Roses|Rock|356|1987|1
+Thriller|Michael Jackson|Pop|357|1982|1
+Hey Jude|The Beatles|Rock|431|1968|1
+Purple Haze|Jimi Hendrix|Rock|170|1967|1
+Lose Yourself|Eminem|Hip Hop|326|2002|1
+Rolling in the Deep|Adele|Soul|228|2010|1
+Shape of You|Ed Sheeran|Pop|233|2017|1
+Blinding Lights|The Weeknd|Synth-pop|200|2019|1
+Bad Guy|Billie Eilish|Electropop|194|2019|1
