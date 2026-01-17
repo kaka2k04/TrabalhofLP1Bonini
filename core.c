@@ -1,8 +1,6 @@
 #include "core.h"
 #include <ctype.h>
 
-// ========== FUNÇÕES EXISTENTES (mantidas) ==========
-
 SistemaPlaylists* criar_sistema() {
     SistemaPlaylists* sistema = malloc(sizeof(SistemaPlaylists));
     if (sistema) {
@@ -89,12 +87,11 @@ void atualizar_duracao_total(Playlist* playlist) {
     }
 }
 
-// ========== NOVAS FUNÇÕES PARA CATÁLOGO ==========
-
+// funções do catálogo
 CatalogoMusicas* carregar_catalogo_musicas() {
     FILE* arquivo = fopen(ARQUIVO_CATALOGO, "r");
     if (!arquivo) {
-        printf("❌ Erro ao abrir catálogo de músicas!\n");
+        printf("Ocorreu um erro ao abrir o catálogo de músicas!\n");
         return NULL;
     }
     
@@ -158,7 +155,7 @@ CatalogoMusicas* carregar_catalogo_musicas() {
     }
     
     fclose(arquivo);
-    printf("📚 Catálogo carregado: %d músicas disponíveis\n", catalogo->qtdMusicas);
+    printf("Catálogo carregado: %d músicas disponíveis\n", catalogo->qtdMusicas);
     return catalogo;
 }
 
@@ -200,9 +197,9 @@ int buscar_musica_catalogo(const CatalogoMusicas* catalogo, const char* termo,
         const char* campo;
         
         switch (tipo_busca) {
-            case 1: campo = m->titulo; break;    // Título
-            case 2: campo = m->artista; break;   // Artista
-            case 3: campo = m->genero; break;    // Gênero
+            case 1: campo = m->titulo; break;
+            case 2: campo = m->artista; break;
+            case 3: campo = m->genero; break;
             default: campo = m->titulo;
         }
         
@@ -217,13 +214,13 @@ int buscar_musica_catalogo(const CatalogoMusicas* catalogo, const char* termo,
 
 void exportar_playlist_txt(const Playlist* playlist, const char* nome_arquivo) {
     if (!playlist || playlist->qtdMusicas == 0) {
-        printf("❌ Playlist vazia ou inválida!\n");
+        printf("Playlist vazia ou inválida!\n");
         return;
     }
     
     FILE* arquivo = fopen(nome_arquivo, "w");
     if (!arquivo) {
-        printf("❌ Erro ao criar arquivo de exportação!\n");
+        printf("Ocorreu um erro ao criar arquivo de exportação!\n");
         return;
     }
     
@@ -265,11 +262,10 @@ void exportar_playlist_txt(const Playlist* playlist, const char* nome_arquivo) {
     }
     
     fclose(arquivo);
-    printf("✅ Playlist exportada para: %s\n", nome_arquivo);
+    printf("Playlist exportada para: %s\n", nome_arquivo);
 }
 
-// ========== PERSISTÊNCIA ==========
-
+// salvar e carregar sistema de playlists
 void salvar_sistema_arquivo(const SistemaPlaylists* sistema) {
     FILE* arquivo = fopen(ARQUIVO_DADOS, "wb");
     if (!arquivo) return;
