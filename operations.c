@@ -43,7 +43,6 @@ void mostrar_menu_principal() {
 void executar_opcao_criar_playlist(SistemaPlaylists* sistema) {
     char nome[MAX];
     printf("Nome da nova playlist: ");
-    limpar_buffer();
     fgets(nome, MAX, stdin);
     nome[strcspn(nome, "\n")] = 0;
     
