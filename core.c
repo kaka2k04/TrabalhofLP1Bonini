@@ -1,4 +1,5 @@
 #include "core.h"
+#include <ctype.h>
 
 // ========== FUNÇÕES EXISTENTES (mantidas) ==========
 
@@ -167,6 +168,27 @@ void liberar_catalogo(CatalogoMusicas* catalogo) {
     free(catalogo);
 }
 
+//corrigindo erro de strcasestr (não existe na biblioteca padrão do C no windows)
+int contem_ignore_case(const char* texto, const char* termo) {
+    if (!texto || !termo) return 0;
+
+    int len_texto = strlen(texto);
+    int len_termo = strlen(termo);
+
+    if (len_termo > len_texto) return 0;
+
+    for (int i = 0; i <= len_texto - len_termo; i++) {
+        int j = 0;
+        while (j < len_termo &&
+               tolower((unsigned char)texto[i + j]) ==
+               tolower((unsigned char)termo[j])) {
+            j++;
+        }
+        if (j == len_termo) return 1;
+    }
+    return 0;
+}
+
 int buscar_musica_catalogo(const CatalogoMusicas* catalogo, const char* termo, 
                           int tipo_busca, int* resultados, int max_resultados) {
     if (!catalogo || !termo || !resultados) return 0;
@@ -184,7 +206,7 @@ int buscar_musica_catalogo(const CatalogoMusicas* catalogo, const char* termo,
             default: campo = m->titulo;
         }
         
-        if (strcasestr(campo, termo) != NULL) {
+        if (contem_ignore_case(campo, termo)) {
             resultados[encontrados] = i;
             encontrados++;
         }
