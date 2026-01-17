@@ -203,21 +203,41 @@ void executar_opcao_adicionar_musica_manual(SistemaPlaylists* sistema) {
     m.genero[strcspn(m.genero, "\n")] = 0;
     
     printf("Duração (segundos): ");
-    scanf("%d", &m.duracao);
+    if (scanf("%d", &m.duracao) != 1 || m.duracao <= 0) {
+        printf("Duração inválida!\n");
+        limpar_buffer();
+        pausar_tela();
+        return;
+    }
     
     printf("Informação extra:\n");
     printf("1. Ano de lançamento\n");
     printf("2. Número do álbum\n");
     printf("Opção: ");
-    scanf("%d", &m.tipoInfoExtra);
-    
+    if (scanf("%d", &m.tipoInfoExtra) != 1 || (m.tipoInfoExtra != 1 && m.tipoInfoExtra != 2)) {
+        printf("Opção inválida!\n");
+        limpar_buffer();
+        pausar_tela();
+        return;
+    }
+
     if (m.tipoInfoExtra == 1) {
         printf("Ano: ");
-        scanf("%d", &m.extra.anoLancamento);
-    } else {
-        printf("Número do álbum: ");
-        scanf("%d", &m.extra.numeroAlbum);
-    }
+        if (scanf("%d", &m.extra.anoLancamento) != 1) {
+            printf("Ano inválido!\n");
+            limpar_buffer();
+            pausar_tela();
+            return;
+        }
+        } else {
+            printf("Número do álbum: ");
+            if (scanf("%d", &m.extra.numeroAlbum) != 1) {
+                printf("Número do álbum inválido!\n");
+                limpar_buffer();
+                pausar_tela();
+                return;
+            }
+        }
     
     if (adicionar_musica_playlist(&sistema->playlists[playlist_idx - 1], &m)) {
         printf("✅ Música adicionada com sucesso!\n");
