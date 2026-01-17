@@ -16,7 +16,11 @@ void pausar_tela() {
 int obter_opcao_menu(int min, int max) {
     int opcao;
     printf("Opção: ");
-    if (scanf("%d", &opcao) != 1) return -1;
+    if (scanf("%d", &opcao) != 1) {
+        limpar_buffer(); 
+        return -1;
+    }
+    limpar_buffer();
     return (opcao >= min && opcao <= max) ? opcao : -1;
 }
 
