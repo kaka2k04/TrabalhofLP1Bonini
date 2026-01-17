@@ -1,6 +1,6 @@
 #include "operations.h"
 #include <ctype.h>
-#include <strings.h>
+#include <string.h>
 
 void limpar_buffer() {
     int c;
