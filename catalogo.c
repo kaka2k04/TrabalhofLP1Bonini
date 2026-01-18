@@ -1,7 +1,7 @@
 #include "include/core.h"
 #include <ctype.h>
 
-// função interna (não precisa ir pro core.h)
+// função interna - apenas ignora maiúsculas/minúsculas na busca
 static int contem_ignore_case(const char* texto, const char* termo) {
     if (!texto || !termo) return 0;
 
@@ -25,7 +25,7 @@ static int contem_ignore_case(const char* texto, const char* termo) {
 CatalogoMusicas* carregar_catalogo_musicas() {
     FILE* arquivo = fopen(ARQUIVO_CATALOGO, "r");
     if (!arquivo) {
-        printf("Ocorreu um erro ao abrir o catálogo de músicas!\n");
+        printf("Ocorreu um erro ao abrir o catalogo de músicas!\n");
         return NULL;
     }
 
@@ -81,7 +81,7 @@ CatalogoMusicas* carregar_catalogo_musicas() {
     }
 
     fclose(arquivo);
-    printf("Catálogo carregado: %d músicas disponíveis\n", catalogo->qtdMusicas);
+    printf("Catalogo carregado: %d musicas disponiveis\n", catalogo->qtdMusicas);
     return catalogo;
 }
 
@@ -118,26 +118,26 @@ int buscar_musica_catalogo(const CatalogoMusicas* catalogo, const char* termo,
 
 void exportar_playlist_txt(const Playlist* playlist, const char* nome_arquivo) {
     if (!playlist || playlist->qtdMusicas == 0) {
-        printf("Playlist vazia ou inválida!\n");
+        printf("Playlist vazia ou nao existe!\n");
         return;
     }
 
     FILE* arquivo = fopen(nome_arquivo, "w");
     if (!arquivo) {
-        printf("Ocorreu um erro ao criar arquivo de exportação!\n");
+        printf("Ocorreu um erro ao criar arquivo de exportacao!\n");
         return;
     }
 
     fprintf(arquivo, "========================================\n");
     fprintf(arquivo, "PLAYLIST: %s\n", playlist->nome);
-    fprintf(arquivo, "Total de músicas: %d\n", playlist->qtdMusicas);
+    fprintf(arquivo, "Total de musicas: %d\n", playlist->qtdMusicas);
 
     int horas = playlist->duracaoTotal / 3600;
     int minutos = (playlist->duracaoTotal % 3600) / 60;
     int segundos = playlist->duracaoTotal % 60;
 
     if (horas > 0) fprintf(arquivo, "Duração total: %02d:%02d:%02d\n", horas, minutos, segundos);
-    else fprintf(arquivo, "Duração total: %02d:%02d\n", minutos, segundos);
+    else fprintf(arquivo, "Duracao total: %02d:%02d\n", minutos, segundos);
 
     fprintf(arquivo, "========================================\n\n");
 
@@ -148,11 +148,11 @@ void exportar_playlist_txt(const Playlist* playlist, const char* nome_arquivo) {
 
         fprintf(arquivo, "%d. %s\n", i + 1, m->titulo);
         fprintf(arquivo, "   Artista: %s\n", m->artista);
-        fprintf(arquivo, "   Gênero: %s\n", m->genero);
-        fprintf(arquivo, "   Duração: %02d:%02d\n", min, seg);
+        fprintf(arquivo, "   Genero: %s\n", m->genero);
+        fprintf(arquivo, "   Duracao: %02d:%02d\n", min, seg);
 
         if (m->tipoInfoExtra == 1) fprintf(arquivo, "   Ano: %d\n", m->extra.anoLancamento);
-        else fprintf(arquivo, "   Álbum: %d\n", m->extra.numeroAlbum);
+        else fprintf(arquivo, "   Album: %d\n", m->extra.numeroAlbum);
 
         fprintf(arquivo, "\n");
     }

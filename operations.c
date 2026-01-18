@@ -2,12 +2,9 @@
 #include <ctype.h>
 #include <string.h>
 
-/* =========================================================
-   Helpers locais (somente usados aqui no operations.c)
-   ========================================================= */
-
+//funções auxiliares internas para ordenação
 static int comparar_titulos_ci(const char* a, const char* b) {
-    /* comparação case-insensitive portátil */
+    // comparação case-insensitive portátil
     unsigned char ca, cb;
     while (*a && *b) {
         ca = (unsigned char)tolower((unsigned char)*a);
@@ -38,9 +35,7 @@ static void bubble_sort(Musica* vetor, int n, int (*comparar)(const Musica*, con
     }
 }
 
-/* =========================================================
-   FUNÇÕES EXECUTAR_OPCAO_* (1 a 9)
-   ========================================================= */
+//executa opções
 
 void executar_opcao_criar_playlist(SistemaPlaylists* sistema) {
     char nome[MAX];

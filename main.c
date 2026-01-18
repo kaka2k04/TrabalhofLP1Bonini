@@ -16,7 +16,7 @@ int main(void) {
     // carrega o catálogo de músicas
     CatalogoMusicas* catalogo = carregar_catalogo_musicas();
     if (!catalogo) {
-        printf("Catálogo não carregado. Você ainda pode criar playlists e adicionar músicas manualmente.\n");
+        printf("Catalogo não carregado. Voce ainda pode criar playlists e adicionar musicas manualmente.\n");
     }
 
     // executa o menu principal

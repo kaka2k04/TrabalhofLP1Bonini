@@ -1,6 +1,6 @@
 #include "include/operations.h"
 
-/* ================= MENU ================= */
+// menu principal
 
 void mostrar_menu_principal() {
     printf("\n=== SISTEMA DE PLAYLISTS COM CATALOGO ===\n");
@@ -18,8 +18,7 @@ void mostrar_menu_principal() {
     printf("========================================\n");
 }
 
-/* ================= LOOP PRINCIPAL ================= */
-
+//executa o menu
 void executar_menu_principal(SistemaPlaylists* sistema, CatalogoMusicas* catalogo) {
     int executando = 1;
 

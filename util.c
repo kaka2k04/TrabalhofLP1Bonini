@@ -7,7 +7,7 @@ void limpar_buffer() {
 }
 
 void pausar_tela() {
-    printf("\nPressione ENTER para continuar...");
+    printf("\nAperte ENTER para continuar...");
     getchar();
 }
 
