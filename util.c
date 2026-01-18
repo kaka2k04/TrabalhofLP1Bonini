@@ -1,4 +1,4 @@
-#include "operations.h"
+#include "include/operations.h"
 #include <string.h>
 
 void limpar_buffer() {

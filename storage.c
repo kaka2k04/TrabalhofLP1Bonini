@@ -1,4 +1,4 @@
-#include "core.h"
+#include "include/core.h"
 
 void salvar_sistema_arquivo(const SistemaPlaylists* sistema) {
     FILE* arquivo = fopen(ARQUIVO_DADOS, "wb");

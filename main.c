@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "core.h"
-#include "operations.h"
+#include "include/core.h"
+#include "include/operations.h"
 
 int main(void) {
     // cria o sistema

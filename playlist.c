@@ -1,4 +1,4 @@
-#include "core.h"
+#include "include/core.h"
 
 SistemaPlaylists* criar_sistema() {
     SistemaPlaylists* sistema = malloc(sizeof(SistemaPlaylists));

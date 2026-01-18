@@ -1,4 +1,4 @@
-#include "core.h"
+#include "include/core.h"
 #include <ctype.h>
 
 // função interna (não precisa ir pro core.h)
