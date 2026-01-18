@@ -13,7 +13,7 @@ void pausar_tela() {
 
 int obter_opcao_menu(int min, int max) {
     int opcao;
-    printf("Opção: ");
+    printf("Opcao: ");
     if (scanf("%d", &opcao) != 1) {
         limpar_buffer();
         return -1;
