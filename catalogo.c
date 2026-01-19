@@ -128,7 +128,6 @@ void exportar_playlist_txt(const Playlist* playlist, const char* nome_arquivo) {
         return;
     }
 
-    fprintf(arquivo, "========================================\n");
     fprintf(arquivo, "PLAYLIST: %s\n", playlist->nome);
     fprintf(arquivo, "Total de musicas: %d\n", playlist->qtdMusicas);
 
@@ -138,8 +137,6 @@ void exportar_playlist_txt(const Playlist* playlist, const char* nome_arquivo) {
 
     if (horas > 0) fprintf(arquivo, "Duracao total: %02d:%02d:%02d\n", horas, minutos, segundos);
     else fprintf(arquivo, "Duracao total: %02d:%02d\n", minutos, segundos);
-
-    fprintf(arquivo, "========================================\n\n");
 
     for (int i = 0; i < playlist->qtdMusicas; i++) {
         const Musica* m = &playlist->musicas[i];
