@@ -136,7 +136,7 @@ void exportar_playlist_txt(const Playlist* playlist, const char* nome_arquivo) {
     int minutos = (playlist->duracaoTotal % 3600) / 60;
     int segundos = playlist->duracaoTotal % 60;
 
-    if (horas > 0) fprintf(arquivo, "Duração total: %02d:%02d:%02d\n", horas, minutos, segundos);
+    if (horas > 0) fprintf(arquivo, "Duracao total: %02d:%02d:%02d\n", horas, minutos, segundos);
     else fprintf(arquivo, "Duracao total: %02d:%02d\n", minutos, segundos);
 
     fprintf(arquivo, "========================================\n\n");
